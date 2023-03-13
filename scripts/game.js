@@ -1,18 +1,37 @@
+import Player from './player'
+
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 200;
-const PLAYER_WIDTH = 88;
-const PLAYER_HEIGHT = 94;
+const PLAYER_WIDTH = 88 /1.5; //58
+const PLAYER_HEIGHT = 94 /1.5; //62
+const MAX_JUMP_HEIGHT = GAME_HEIGHT;
+const MIN_JUMP_HEIGHT = 150;
+
+//Game Objects
+let player = null;
+
+
 
 let scaleRatio = null;
 let previousTime = null;
+
+function createSprites(){
+    const playerWidthInGame = PLAYER_WIDTH * scaleRatio;
+    const playerheightInGame = PLAYER_HEIGHT * scaleRatio;
+    const minJumpHeightInGame = MIN_JUMP_HEIGHT * scaleRatio;
+    const maxJumpHeightInGame = MAX_JUMP_HEIGHT * scaleRatio;
+
+    player= new Player(ctx, playerWidthInGame, playerheightInGame, minJumpHeightInGame, maxJumpHeightInGame, scaleRatio);
+}
 
 function setScreen(){
     scaleRatio = getScaleRatio();
     canvas.width = GAME_WIDTH * scaleRatio;
     canvas.height = GAME_HEIGHT * scaleRatio;
+    createSprites();
 }
 
 setScreen();
@@ -59,9 +78,16 @@ function gameLoop(currentTime) {
     previousTime = currentTime
     console/console.log(frameTimeDelta);
     clearSceen();
-    console.log("gameloop");
-    requestAnimationFrame(gameLoop);
 
+//Update Game Objects
+
+
+
+//Draw Game Objects
+player.draw();
+
+
+    requestAnimationFrame(gameLoop);
 }
 
 requestAnimationFrame(gameLoop);
