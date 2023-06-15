@@ -1,4 +1,5 @@
 import Player from './player.js'
+import Ground from './ground.js';
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -9,9 +10,13 @@ const PLAYER_WIDTH = 88 /1.5; //58
 const PLAYER_HEIGHT = 94 /1.5; //62
 const MAX_JUMP_HEIGHT = GAME_HEIGHT;
 const MIN_JUMP_HEIGHT = 150;
+const GROUND_WIDTH = 2399;
+const GROUND_HEIGHT = 24;
+const GROUND_AND_CACTUS_SPEED = 0.5;
 
 //Game Objects
 let player = null;
+let ground = null;
 
 
 
