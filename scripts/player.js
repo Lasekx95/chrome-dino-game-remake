@@ -3,6 +3,11 @@ export default class player {
     walkAnimationTimer = this.WALK_ANIMATION_TIMER;
     dinoRunImages = []
 
+    jumpPressed = false;
+    jumpInProgress = false;
+    falling = false;
+    JUMP_SPEED = 0;
+
     constructor(ctx, width, height, minJumpHeight, maxJumpHeight, scaleRatio){
         this.ctx = ctx;
         this.canvas = ctx.canvas;
@@ -21,16 +26,17 @@ export default class player {
         this.image = this.standingStillImage;
 
         const dinoRunImage1 = new Image();
-        dinoRunImage1.src = './images/dino_run-0.png'
+        dinoRunImage1.src = './images/dino-run-0.png';
+
         const dinoRunImage2 = new Image();
-        dinoRunImage2.src = './images/dino_run-1.png'
+        dinoRunImage2.src = './images/dino-run-1.png';
     
         this.dinoRunImages.push(dinoRunImage1);
         this.dinoRunImages.push(dinoRunImage2);
     }
 
     update(gameSpeed, frameTimeDelta){
-        this.dinoRunImages(gameSpeed, frameTimeDelta);
+        this.run(gameSpeed, frameTimeDelta);
     }
 
     run(gameSpeed, frameTimeDelta){
@@ -42,10 +48,18 @@ export default class player {
             {
                 this.image = this.dinoRunImages[0];
             }
+            this.walkAnimationTimer = this.WALK_ANIMATION_TIMER;
         }
+        this.walkAnimationTimer -= frameTimeDelta * gameSpeed; //Move at same rate regardless of refresh rate 
     }
 
     draw(){
-        this.ctx.drawImage(this.image,this.x, this.y, this.width, this.height)
+        this.ctx.drawImage(
+            this.image,
+            this.x, 
+            this.y, 
+            this.width, 
+            this.height
+            )
     }
 }
