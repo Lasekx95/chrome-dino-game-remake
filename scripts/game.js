@@ -111,6 +111,7 @@ function gameLoop(currentTime) {
 
 //Update Game Objects
 ground.update(gameSpeed, frameTimeDelta);
+player.update(gameSpeed, frameTimeDelta);
 
 
 //Draw Game Objects
