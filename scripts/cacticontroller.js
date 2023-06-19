@@ -43,7 +43,7 @@ export default class CactiController {
             y, 
             cactusImage.width, 
             cactusImage.height, 
-            cactusImage.imgage
+            cactusImage.image
             );
 
         this.cacti.push(cactus)

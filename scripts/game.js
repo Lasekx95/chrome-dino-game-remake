@@ -141,7 +141,7 @@ cactiController.draw();
 player.draw();
 
 
-    requestAnimationFrame(gameLoop);
+requestAnimationFrame(gameLoop);
 }
 
 requestAnimationFrame(gameLoop);
