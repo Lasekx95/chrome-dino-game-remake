@@ -11,7 +11,7 @@ const GAME_SPEED_INCREMENT = 0.00001; // Increase per game loop
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 200;
-const PLAYER_WIDTH = 88 /1.5; //58
+const PLAYER_WIDTH = 62 /1.5; //41.33333..
 const PLAYER_HEIGHT = 94 /1.5; //62
 const MAX_JUMP_HEIGHT = GAME_HEIGHT;
 const MIN_JUMP_HEIGHT = 150;
